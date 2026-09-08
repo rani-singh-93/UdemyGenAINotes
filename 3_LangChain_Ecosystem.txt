@@ -1,0 +1,151 @@
+# LangChain Ecosystem — Short Notes
+
+## 1. Why LangChain?
+
+Earlier, different LLM providers had **different models and different ways/libraries to access them**.
+
+For example:
+
+```text
+OpenAI ──────┐
+HuggingFace ─┤
+Llama ───────┤
+Gemini ──────┤
+              ↓
+          LangChain
+              ↓
+       GenAI Application
+```
+
+**LangChain = common framework for building Generative AI applications** using different LLM models. 
+
+---
+
+# 2. LangChain Ecosystem
+
+LangChain expanded into an ecosystem to cover the **entire lifecycle of a GenAI application**.
+
+```text
+                 LangChain Ecosystem
+                        │
+       ┌────────────────┼────────────────┐
+       ↓                ↓                ↓
+   LangChain        LangSmith        LangServe
+       │                │                │
+ Build GenAI       Debug/Evaluate     Deploy
+ Applications      & Monitor          APIs
+```
+
+---
+
+## 3. LangChain
+
+Used to **build GenAI applications**.
+
+Important concepts mentioned:
+
+* Chains
+* Agents
+* Retrieval
+* Prompt Engineering
+* Output Parsers
+* Document Loaders
+* Text Splitters
+* Vector Stores
+
+
+
+---
+
+## 4. LangSmith
+
+Used for **LLMOps** — managing and improving your LLM application.
+
+Main activities:
+
+* Debugging
+* Evaluation
+* Monitoring
+* Playground
+* Annotation
+
+```text
+GenAI App
+    ↓
+LangSmith
+    ↓
+Debug → Evaluate → Monitor
+```
+
+
+
+---
+
+## 5. LangServe
+
+Used to **deploy LangChain chains as REST APIs**.
+
+```text
+LangChain Chain
+      ↓
+  LangServe
+      ↓
+   REST API
+      ↓
+ Application
+```
+
+
+
+---
+
+## 6. LangChain Community
+
+Provides integrations with different models and tools, including models from providers such as:
+
+* OpenAI
+* Google
+* Hugging Face
+* Meta/Llama
+
+
+
+---
+
+## 7. RAG-related Components
+
+For applications like **Document Q&A / RAG**, the transcript mentions:
+
+```text
+Documents
+    ↓
+Document Loader
+    ↓
+Text Splitter
+    ↓
+Embeddings
+    ↓
+Vectors
+    ↓
+Vector Store
+    ↓
+Similarity Search
+    ↓
+Relevant Data
+```
+
+The transcript specifically mentions **cosine similarity** for retrieving relevant results from vectors.
+
+---
+
+# ⭐ Remember This
+
+**LangChain → Build**
+
+**LangSmith → Debug + Evaluate + Monitor**
+
+**LangServe → Deploy as API**
+
+**LangChain Community → Model/tool integrations**
+
+And the overall goal is to manage the **complete GenAI project lifecycle**. 

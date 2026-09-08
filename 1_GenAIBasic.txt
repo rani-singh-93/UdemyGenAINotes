@@ -1,0 +1,13 @@
+Concept		                    Easy Meaning
+AI	            	            Applications performing tasks with out human intervention
+ML	            	            Subset of AI; uses data/statistical tools for analysis, prediction and forecasting
+DL	            	            Subset of ML; uses multi-layered neural networks inspired by human learning
+Generative AI		            Generates new content based on learned data
+CNN	            	            Deep learning approach discussed for computer vision/object detection
+RNN	            	            Used for text and time-series related use cases
+Transformer	                    Important architecture/backbone for many LLMs
+LLM	                            Works primarily with text
+Large Image Model	            Works with images/videos
+Foundation Model	            Large pre-trained model trained on huge amounts of data
+Fine-tuning	                    Adapting a pre-trained model for a specific/domain use case
+LangChain	                    Framework used to build applications around models, including RAG and chatbots

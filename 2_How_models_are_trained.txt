@@ -1,0 +1,198 @@
+# How ChatGPT / LLMs Are Trained
+
+## 1. Three Main Stages
+
+According to the transcript, ChatGPT training is explained in **3 stages**:
+
+```text
+Huge Internet Data
+        ↓
+1. Generative Pre-training
+        ↓
+   Base GPT Model
+        ↓
+2. Supervised Fine-Tuning (SFT)
+        ↓
+   SFT ChatGPT Model
+        ↓
+3. Reinforcement Learning
+   from Human Feedback (RLHF)
+        ↓
+      ChatGPT
+```
+
+
+
+---
+
+## 2. Stage 1 — Generative Pre-training
+
+The model is trained using a **huge amount of internet text data**, such as:
+
+* Websites
+* Books
+* Public forums
+* Tutorials/articles
+
+This data is passed through the **Transformer architecture** to create a **base GPT model**. 
+
+```text
+Internet Data
+      ↓
+  Transformer
+      ↓
+  Base GPT Model
+```
+
+The resulting model can perform tasks like:
+
+* Text completion
+* Translation
+* Text summarization
+* Sentiment analysis
+
+But the main goal of ChatGPT is **conversation**, so more training is required. 
+
+---
+
+## 3. Stage 2 — Supervised Fine-Tuning (SFT)
+
+Now humans create **real conversation examples**.
+
+Example:
+
+```text
+Human: Hello, how are you?
+Chatbot: I'm good, thank you!
+
+Human: What is AI?
+Chatbot: AI stands for Artificial Intelligence...
+```
+
+These conversations are collected as training data:
+
+```text
+Request → Ideal Response
+```
+
+Millions of such examples are created and given to the **Base GPT model** for supervised fine-tuning. 
+
+```text
+Human Conversations
+        ↓
+ Request + Response Dataset
+        ↓
+   Base GPT Model
+        ↓
+      SFT Model
+```
+
+The transcript mentions **Stochastic Gradient Descent** as the optimizer used here.
+
+---
+
+## 4. Problem After SFT
+
+Even after supervised fine-tuning, the model may sometimes give **awkward or unsuitable answers**, especially for questions that weren't well represented in the training data. 
+
+So another stage is needed.
+
+---
+
+# 5. Stage 3 — RLHF
+
+**RLHF = Reinforcement Learning from Human Feedback**
+
+This is used to improve the quality of ChatGPT's responses. 
+
+### Step 1: Generate multiple responses
+
+For the same question, the model can generate multiple answers:
+
+```text
+Question
+   ↓
+SFT Model
+   ↓
+A   B   C   D
+```
+
+### Step 2: Humans rank them
+
+Humans decide which response is better:
+
+```text
+B → Rank 1 ⭐
+A → Rank 2
+D → Rank 3
+C → Rank 4
+```
+
+
+
+---
+
+## 6. Reward Model
+
+These human rankings are used to create a **Reward Model**.
+
+The reward model gives a score/probability to responses:
+
+```text
+Response
+    ↓
+Reward Model
+    ↓
+Reward / Score
+```
+
+Higher score → better response
+Lower score → worse response
+
+The transcript describes this in terms of probability between **0 and 1**. 
+
+---
+
+## 7. PPO — Improving the Model
+
+Finally, reinforcement learning is applied using:
+
+**PPO = Proximal Policy Optimization**
+
+It updates the model based on the rewards so that the model becomes better at producing responses that humans prefer. 
+
+```text
+User Question
+      ↓
+ ChatGPT Model
+      ↓
+  Response(s)
+      ↓
+ Human Ranking
+      ↓
+ Reward Model
+      ↓
+   Reward
+      ↓
+      PPO
+      ↓
+ Improved Model
+```
+
+This process happens continuously to improve the responses.
+
+---
+
+# ⭐ Quick Revision
+
+| Stage               | What happens?                                               |
+| ------------------- | ----------------------------------------------------------- |
+| **1. Pre-training** | Train on huge internet data → Base GPT                      |
+| **2. SFT**          | Train using human-created question/answer conversations     |
+| **3. RLHF**         | Humans rank responses → Reward Model → PPO → Better ChatGPT |
+
+### 🧠 Remember:
+
+**Pre-training → SFT → RLHF → ChatGPT**
+
+The transcript emphasizes that the **most important/complex part is RLHF**, because human feedback significantly improves the quality of the model's responses. 
