@@ -1,0 +1,83 @@
+## Transformer Architecture — Quick Revision Notes
+
+### 1. Transformer
+
+Transformer is used for **sequence-to-sequence tasks**, e.g. language translation. 
+
+```text
+English → Transformer → French
+```
+
+### 2. Main Architecture
+
+```text
+             Transformer
+             /          \
+        Encoder        Decoder
+        ↓ ↓ ↓           ↓ ↓ ↓
+     multiple        multiple
+       blocks           blocks
+```
+
+The original **Attention Is All You Need** architecture uses **6 encoders + 6 decoders**. 
+
+### 3. Encoder
+
+Each encoder has:
+
+```text
+Input
+  ↓
+Self-Attention
+  ↓
+Feed Forward NN
+  ↓
+Next Encoder
+```
+
+
+
+### 4. Decoder
+
+Each decoder has:
+
+* Self-Attention
+* Encoder-Decoder Attention
+* Feed Forward Neural Network 
+
+---
+
+### 5. Self-Attention → Contextual Vector
+
+Example:
+
+```text
+"How are you?"
+      ↓
+ Embedding Layer
+      ↓
+Word Vectors
+      ↓
+ Self-Attention
+      ↓
+Contextual Vectors
+```
+
+**Normal word vector:** Represents a word without considering surrounding words.
+
+**Contextual vector:** Represents a word while considering the **context of other words**. 
+
+Example:
+
+```text
+How → vector based on "are you"
+are → vector based on "How you"
+you → vector based on "How are"
+```
+
+### ⭐ Key Point
+
+Unlike RNN/LSTM-style sequential processing, **Transformer self-attention allows all words to be processed in parallel**, which makes the architecture more scalable. 
+
+**Remember:**
+`Embedding → Self-Attention → Contextual Vectors → Feed Forward → Next Encoder`
